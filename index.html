@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="NoctiScribe is a private sleep speech journal for iPhone and Apple Watch. Capture the night, reflect in the morning.">
+  <meta name="theme-color" content="#081220">
+  <link rel="canonical" href="https://pinkysworld.github.io/Noctiscribe/">
+  <title>NoctiScribe — A private sleep speech journal</title>
+  <style>
+    :root{--ink:#eaf2ff;--muted:#aebfd7;--night:#081220;--panel:#10213a;--line:rgba(229,240,255,.14);--blue:#75b8ff;--violet:#a99cff;--aqua:#77e4d5;--radius:26px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 500px at 82% -5%,#1d3a6a 0%,transparent 60%),radial-gradient(700px 500px at 5% 20%,#182b52 0%,transparent 60%),var(--night);color:var(--ink);font:16px/1.6 ui-rounded,"Avenir Next","Segoe UI",system-ui,sans-serif}
+    a{color:inherit;text-decoration:none}.shell{max-width:1160px;margin:auto;padding:26px}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:.04em}.brand i{display:inline-block;width:11px;height:11px;margin-right:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 18px var(--aqua)}.navlinks{display:flex;gap:18px;color:var(--muted);font-size:.94rem}.navlinks a:hover{color:white}
+    .hero{display:grid;grid-template-columns:1.12fr .88fr;gap:50px;align-items:center;padding:95px 0 72px}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:7px 12px;color:#d7e7ff;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+    h1{max-width:730px;margin:18px 0;font-size:clamp(3.1rem,7vw,6.3rem);line-height:.94;letter-spacing:-.065em}h1 em{font-style:normal;color:var(--blue)}.lede{max-width:590px;margin:0;color:var(--muted);font-size:1.15rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.button{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 20px;font-weight:750;transition:transform .2s,background .2s}.button:hover{transform:translateY(-2px)}.primary{background:linear-gradient(110deg,var(--blue),var(--violet));color:#07111e}.secondary{border:1px solid var(--line);color:#ddeaff}
+    .device{position:relative;min-height:480px;display:grid;place-items:center}.orb{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle at 35% 32%,#80bfff 0 3%,#2d5b96 20%,#122442 52%,transparent 70%);filter:drop-shadow(0 0 70px rgba(96,166,255,.33))}.phone{position:relative;width:250px;height:480px;padding:13px;border:2px solid rgba(238,246,255,.58);border-radius:42px;background:#070c15;box-shadow:0 28px 60px rgba(0,0,0,.45)}.notch{width:96px;height:20px;margin:auto;border-radius:0 0 15px 15px;background:#000}.screen{height:calc(100% - 20px);border-radius:28px;background:linear-gradient(160deg,#183556,#091827);padding:25px 16px;color:#edf6ff}.screen small{color:#a5bad5}.moon{font-size:82px;line-height:1}.screen h3{margin:14px 0 5px;font-size:1.42rem}.wave{display:flex;align-items:center;gap:4px;height:84px;margin:25px 0}.wave b{width:6px;border-radius:9px;background:linear-gradient(var(--aqua),var(--blue));animation:wave 1.25s ease-in-out infinite alternate}.wave b:nth-child(2n){animation-delay:.25s}.wave b:nth-child(3n){animation-delay:.55s}@keyframes wave{from{height:14px}to{height:64px}}.screen .pill{border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:9px;font-size:.75rem;color:#b9cbe1}
+    .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 0 82px}.trust article,.feature,.price{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,rgba(28,54,91,.74),rgba(10,23,43,.78));box-shadow:inset 0 1px rgba(255,255,255,.04)}.trust article{padding:22px}.trust strong{display:block;margin-bottom:5px}.trust span{color:var(--muted);font-size:.91rem}
+    .section{padding:72px 0}.kicker{color:var(--aqua);font-weight:750;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem}.section h2{max-width:700px;margin:10px 0 13px;font-size:clamp(2.25rem,5vw,4rem);line-height:1;letter-spacing:-.05em}.section>p{max-width:680px;margin:0;color:var(--muted);font-size:1.07rem}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:31px}.feature{padding:26px}.feature .icon{display:grid;place-items:center;width:44px;height:44px;margin-bottom:19px;border-radius:14px;background:rgba(117,184,255,.14);color:var(--blue);font-size:1.35rem}.feature h3{margin:0 0 8px;font-size:1.05rem}.feature p{margin:0;color:var(--muted);font-size:.94rem}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:28px;counter-reset:step}.step{position:relative;padding-top:58px}.step:before{counter-increment:step;content:"0" counter(step);position:absolute;top:0;color:var(--blue);font-weight:800;font-size:1.1rem}.step:not(:last-child):after{content:"";position:absolute;top:13px;left:50px;right:-15px;border-top:1px dashed rgba(117,184,255,.4)}.step h3{margin:0 0 8px}.step p{margin:0;color:var(--muted)}
+    .pricing{padding:72px 0}.pricinghead{display:flex;justify-content:space-between;gap:24px;align-items:end}.pricinghead h2{margin:8px 0 0;font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.05em;line-height:1}.pricinghead p{max-width:430px;margin:0;color:var(--muted);font-size:.91rem}.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}.price{padding:26px}.price.best{border-color:rgba(119,228,213,.55);background:linear-gradient(155deg,rgba(46,111,119,.52),rgba(17,34,58,.8))}.price .tag{color:var(--muted);font-size:.77rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.price strong{display:block;margin:8px 0;font-size:2rem;letter-spacing:-.05em}.price p{min-height:42px;margin:0;color:var(--muted);font-size:.91rem}.price ul{margin:20px 0 0;padding:0;list-style:none;color:#d9e7fa;font-size:.89rem}.price li{margin:7px 0}.price li:before{content:"✓";margin-right:8px;color:var(--aqua)}
+    .notice{margin-top:66px;padding:25px;border-left:2px solid var(--aqua);border-radius:0 17px 17px 0;background:rgba(119,228,213,.06);color:var(--muted);font-size:.93rem}.notice strong{color:#e9fbf8}.footer{display:flex;justify-content:space-between;gap:24px;align-items:end;padding:45px 0 18px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}.footlinks{display:flex;flex-wrap:wrap;gap:16px}.footlinks a:hover{color:white}
+    @media(max-width:800px){.shell{padding:20px}.nav{align-items:flex-start}.navlinks{gap:11px;font-size:.85rem}.hero{grid-template-columns:1fr;padding:62px 0 45px;gap:20px}.device{min-height:360px;order:-1}.orb{width:280px;height:280px}.phone{transform:scale(.74);margin:-62px}.trust,.features,.steps,.prices{grid-template-columns:1fr}.step:not(:last-child):after{display:none}.pricinghead,.footer{display:block}.pricinghead p{margin-top:17px}.footer>div+div{margin-top:18px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="./"><i></i>NoctiScribe</a>
+      <div class="navlinks"><a href="#features">Features</a><a href="#pricing">Premium</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></div>
+    </nav>
+    <main>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Private sleep speech journal</span>
+          <h1>Keep the night <em>private.</em><br>Make morning easier.</h1>
+          <p class="lede">NoctiScribe helps you capture short nighttime speech clips, turn them into text, and reflect on patterns at your own pace.</p>
+          <div class="actions"><a class="button primary" href="#features">Explore the app</a><a class="button secondary" href="privacy.html">Read our privacy policy</a></div>
+        </div>
+        <div class="device" aria-label="Illustration of NoctiScribe on iPhone">
+          <div class="orb"></div><div class="phone"><div class="notch"></div><div class="screen"><small>TONIGHT</small><div class="moon">☾</div><h3>Rest easy.</h3><small>Night Mode is ready when you are.</small><div class="wave"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="pill">Private by default · You stay in control</div></div></div>
+        </div>
+      </section>
+      <section class="trust" aria-label="Privacy promises">
+        <article><strong>Started by you</strong><span>Night Mode begins only when you decide to start it.</span></article>
+        <article><strong>Private by default</strong><span>Audio and journals are stored on your device by default.</span></article>
+        <article><strong>Your data, your choice</strong><span>Delete clips, nights, or stored data from inside the app.</span></article>
+      </section>
+      <section id="features" class="section">
+        <div class="kicker">A quieter kind of journal</div><h2>Made for the details that disappear by breakfast.</h2><p>Built around deliberate recording, clear choices, and a calm morning review—not medical claims or endless metrics.</p>
+        <div class="features">
+          <article class="feature"><div class="icon">◒</div><h3>Night Mode</h3><p>Start a night when you are ready. NoctiScribe captures short clips around relevant sounds, helping avoid unnecessary storage.</p></article>
+          <article class="feature"><div class="icon">⌁</div><h3>Speech transcription</h3><p>Turn captured speech into readable moments. Choose on-device recognition where Apple supports it, or opt into Apple cloud transcription.</p></article>
+          <article class="feature"><div class="icon">◌</div><h3>Morning reflection</h3><p>Review your clips, summaries, and patterns in one focused place. Insights are informational, never medical advice.</p></article>
+          <article class="feature"><div class="icon">⌘</div><h3>Apple Health, optional</h3><p>If you enable it, NoctiScribe can read selected HealthKit sleep and overnight data for on-device correlations.</p></article>
+          <article class="feature"><div class="icon">↗</div><h3>Exports and reports</h3><p>Premium tools make it easier to take your own journal and reflections with you in a format you choose.</p></article>
+          <article class="feature"><div class="icon">⌁</div><h3>Privacy controls</h3><p>Use app locks, optional iCloud sync, and clear data deletion controls to shape the experience around your comfort.</p></article>
+        </div>
+      </section>
+      <section class="section">
+        <div class="kicker">Simple by design</div><h2>One small ritual, from night to morning.</h2>
+        <div class="steps"><article class="step"><h3>Settle in</h3><p>Place your iPhone nearby and start Night Mode when you are ready to sleep.</p></article><article class="step"><h3>Let the night be quiet</h3><p>Short, relevant clips are saved to your private journal while you rest.</p></article><article class="step"><h3>Reflect in the morning</h3><p>Review your transcript and patterns when it is useful—not when an algorithm demands it.</p></article></div>
+      </section>
+      <section id="pricing" class="pricing">
+        <div class="pricinghead"><div><div class="kicker">NoctiScribe Premium</div><h2>Choose your pace.</h2></div><p>Start with the free core experience. US reference prices are shown below; the App Store displays the price for your storefront before purchase.</p></div>
+        <div class="prices">
+          <article class="price"><div class="tag">Monthly</div><strong>US$3.99</strong><p>Auto-renewable subscription.</p><ul><li>Longer history</li><li>Advanced insight tools</li><li>Exports and reports</li></ul></article>
+          <article class="price best"><div class="tag">Yearly · best value</div><strong>US$24.99</strong><p>Auto-renewable. Eligible new subscribers receive a 1-week free trial.</p><ul><li>Everything in Monthly</li><li>Best long-term value</li><li>Premium features for a full year</li></ul></article>
+          <article class="price"><div class="tag">Lifetime</div><strong>US$59.99</strong><p>One-time, non-consumable purchase.</p><ul><li>Permanent premium access</li><li>No recurring billing</li><li>Future premium updates</li></ul></article>
+        </div>
+      </section>
+      <aside class="notice"><strong>Not a medical device.</strong> NoctiScribe does not diagnose, treat, cure, or prevent any medical condition. Be mindful of consent and recording laws where you sleep.</aside>
+    </main>
+    <footer class="footer"><div><strong>NoctiScribe</strong><br>Capture the night. Keep control.</div><div class="footlinks"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="support.html">Support</a><a href="mailto:mip@gmx.biz">mip@gmx.biz</a></div></footer>
+  </div>
+</body>
+</html>
